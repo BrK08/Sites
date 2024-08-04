@@ -1,15 +1,40 @@
+:root {
+    --m: 1.5rem; 
+    --red: #FF6565;
+    --pink: #FF64F9;
+    --purple: #6B5FFF;
+    --blue: #4D8AFF;
+    --green: #5BFF89;
+    --yellow: #FFEE55;
+    --orange: #FF6D1B;
+}
+
+html, body {
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    width: 100%;
+    height: 100%;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000;
+    background-color: #141516;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; 
+    align-items: center;
+    height: 100vh;
 }
 
 header {
     background-color: #1a1a1a;
     padding: 20px;
     text-align: center;
+    width: 100%;
+    position: relative;
 }
 
 header h1 {
@@ -34,6 +59,9 @@ nav ul li a {
 
 main {
     padding: 20px;
+    padding-left: 50px;
+    flex: 1 0 auto; 
+    width: 100%;
 }
 
 .hero {
@@ -55,9 +83,9 @@ footer {
     background-color: #1a1a1a;
     padding: 10px;
     text-align: center;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
+    position: relative;
+    width: 130%;
+    flex-shrink: 0;
 }
 
 form {
@@ -69,10 +97,112 @@ form label, form input, form textarea {
     margin-bottom: 10px;
 }
 
-form button {
-    background-color: #ff9800;
-    color: #000;
-    border: none;
-    padding: 10px;
+.button-container {
+    display: flex;
+    gap: 10px; /* Butonlar arasında boşluk bırakmak için */
+}
+
+button {
+    border: calc(0.08 * var(--m)) solid transparent;
+    position: relative;
+    color: #F3F3F3;
+    font-family: 'Space Grotesk';
+    font-size: var(--m);
+    border-radius: calc(0.7 * var(--m));
+    padding: calc(0.25 * var(--m)) calc(0.5 * var(--m)); 
+    display: flex;
+    justify-content: center;
     cursor: pointer;
+    background: linear-gradient(#121213, #121213), linear-gradient(#121213 50%, rgba(18, 18, 19, 0.6) 80%, rgba(18, 18, 19, 0)),  linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    background-origin: border-box;
+    background-clip: padding-box, border-box, border-box;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+}
+
+button::before {
+    content: '';
+    background: linear-gradient(90deg, var(--orange), var(--yellow), var(--green), var(--blue), var(--purple), var(--pink), var(--red));
+    height: 30%;
+    width: 60%;
+    position: absolute;
+    bottom: -20%;
+    z-index: -5;
+    background-size: 200%;
+    animation: animate 2s infinite linear;
+    filter: blur(calc(0.8 * var(--m)));
+}
+
+button:hover, button:hover::before {
+    animation: animate 0.5s infinite linear;
+}
+
+@keyframes animate {
+    0% {background-position: 0}
+    100% {background-position: 200%}
+}
+
+@media screen and (max-width: 1000px) {
+    :root {
+        --m: 1.5rem; 
+    }
+}
+
+/* Yorum yapma formu ve yıldızlı değerlendirme stil kuralları */
+#rating {
+    display: flex;
+    gap: 5px;
+}
+
+#rating input[type="radio"] {
+    display: none;
+}
+
+#rating label {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #FFD700; 
+}
+
+#rating input[type="radio"]:checked ~ label {
+    color: #FFD700;
+}
+
+#comment-list {
+    margin-top: 20px;
+}
+
+.comment-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #000000;
+}
+
+.comment-item .username {
+    font-weight: bold;
+}
+
+.comment-item .rating {
+    color: #FFD700;
+}
+
+/* Gizli ürünler */
+.product-item.hidden {
+    display: none;
+}
+
+/* Kullanıcı profil fotoğrafı stil kuralları */
+#userProfile {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: none; /* Başlangıçta gizli, giriş yapıldığında gösterilecek */
+}
+
+#profilePhoto {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
