@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>İletişim - UniversalBotSupport</title>
+    <title>Yorumlar - UniversalBotSupport</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -13,24 +13,35 @@
             <ul>
                 <li><a href="index.html">Ana Sayfa</a></li>
                 <li><a href="products.html">Ürünler</a></li>
-                <li><a href="contact.html">İletişim</a></li>
+                <li><a href="contact.html">Yorumlar</a></li>
+                <li><a href="register.html">Kayıt Ol</a></li>
+                <li><a href="login.html">Giriş Yap</a></li>
             </ul>
         </nav>
     </header>
     <main>
-        <h2>İletişim</h2>
-        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-            <label for="name">İsim:</label>
-            <input type="text" id="name" name="name" required>
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            <label for="message">Mesaj:</label>
-            <textarea id="message" name="message" required></textarea>
-            <button type="submit">Gönder</button>
+        <h2>Yorumlar</h2>
+        <form id="comment-form">
+            <label for="rating">Yıldız:</label>
+            <div id="rating-stars">
+                <input type="radio" name="rating" id="star5" value="5"><label for="star5">☆</label>
+                <input type="radio" name="rating" id="star4" value="4"><label for="star4">☆</label>
+                <input type="radio" name="rating" id="star3" value="3"><label for="star3">☆</label>
+                <input type="radio" name="rating" id="star2" value="2"><label for="star2">☆</label>
+                <input type="radio" name="rating" id="star1" value="1"><label for="star1">☆</label>
+            </div>
+            <label for="comment">Yorum:</label>
+            <textarea id="comment" name="comment" required></textarea>
+            <button type="submit">Yorum Yap</button>
         </form>
+        <div id="comment-list">
+            <!-- Yorumlar burada listelenecek -->
+        </div>
+        <p id="comment-count">0 yorum</p>
     </main>
     <footer>
         <p>&copy; 2024 UniversalBotSupport. Tüm hakları saklıdır.</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
