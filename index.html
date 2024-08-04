@@ -4,40 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UniversalBotSupport</title>
+    <link href="https://fonts.googleapis.com/css?family=Space%20Grotesk:700|Space%20Grotesk:400" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>UniversalBotSupport</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Ana Sayfa</a></li>
-                <li><a href="products.html">Ürünler</a></li>
-                <li><a href="contact.html">İletişim</a></li>
-            </ul>
-        </nav>
+        <div class="header-container">
+            <h1>UniversalBotSupport</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Ana Sayfa</a></li>
+                    <li><a href="products.html">Ürünler</a></li>
+                    <li><a href="contact.html">Yorumlar</a></li>
+                    <li><a href="register.html">Kayıt Ol</a></li>
+                    <li><a href="login.html">Giriş Yap</a></li>
+                </ul>
+            </nav>
+            <div id="userProfile" style="display:none;">
+                <img id="profilePhoto" alt="Profil Fotoğrafı" style="width: 50px; height: 50px; border-radius: 50%;">
+            </div>
+        </div>
     </header>
     <main>
-        <section class="hero">
-            <h2>Uzayın Ötesine Geçen Bot Destekleri</h2>
-            <p>Discord kullanıcıları için en iyi bot desteklerini sunuyoruz.</p>
-        </section>
-        <section class="products">
-            <h2>Popüler Ürünler</h2>
-            <div class="product-list">
-                <div class="product-item">
-                    <h3>Bot A</h3>
-                    <p>Özellikleri ve fiyatı hakkında bilgi.</p>
-                </div>
-                <div class="product-item">
-                    <h3>Bot B</h3>
-                    <p>Özellikleri ve fiyatı hakkında bilgi.</p>
+        <h2>Hoşgeldiniz!</h2>
+        <p>UniversalBotSupport'a hoşgeldiniz. Discord için en iyi botları burada bulabilirsiniz.</p>
+        <h2>Popüler Ürünler</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <h3>Universal Music Bot v4</h3>
+                <p>Özellikler:</p>
+                <ul>
+                    <li>Daha Kaliteli Ses</li>
+                    <li>Daha Fazla Playlist Ekleme</li>
+                    <li>Ve daha hızlı</li>
+                </ul>
+                <p>Fiyat: Şu anda ücretsiz</p>
+                <div class="button-container">
+                    <button onclick="purchaseProduct('Universal Music Bot v4', 0)">Satın Al</button>
+                    <button onclick="window.location.href='features.html'">Özellikler</button>
                 </div>
             </div>
-        </section>
+            <div class="product-item" id="botB">
+                <h3>Bot B</h3>
+                <p>Özellikler:</p>
+                <ul>
+                    <li>Özellik 1</li>
+                    <li>Özellik 2</li>
+                </ul>
+                <p>Fiyat: Şu anda ücretsiz</p>
+                <div class="button-container">
+                    <button onclick="purchaseProduct('Bot B', 30)">Satın Al</button>
+                    <button onclick="window.location.href='features.html'">Özellikler</button>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <p>&copy; 2024 UniversalBotSupport. Tüm hakları saklıdır.</p>
+        <p>Design By BrK</p>
     </footer>
+    <script src="scripts.js"></script>
 </body>
 </html>
